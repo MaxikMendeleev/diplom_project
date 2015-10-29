@@ -15,6 +15,7 @@ source 'https://rubygems.org'
   gem 'jbuilder', '~> 2.0'
   gem 'sdoc', '~> 0.4.0', group: :doc
 git status
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'debugger'
