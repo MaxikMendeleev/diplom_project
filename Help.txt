@@ -1,0 +1,4 @@
+rails generate scaffold Micropost content:string user_id:integer - генерация новой таблицы,
+ контроллера и вьюшек
+
+rails generate controller static_pages Генерация контроллера StaticPages
