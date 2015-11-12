@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-
-git   def about
+  
+  def about
   end
 end
