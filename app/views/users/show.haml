@@ -4,6 +4,11 @@
     %section
       %h1
         = gravatar_for @user
+        Ваше имя
         = @user.name
-      %h2
+      %h1
+        Ваша фамилия
+        = @user.surname
+      %h1
+        Ваш E-mail
         = @user.email
