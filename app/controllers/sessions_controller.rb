@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
+    if signed_in?
+      render 'static_pages/home'
+    end
   end
 
   def create

@@ -18,5 +18,8 @@
                   %li.divider
                   %li
                     = link_to "Выйти", signout_path, method: "delete"
+            %li.float-right.h4= link_to "Что я сейчас делаю", '#'
+            %li.float-right.h4= link_to "Затраченное время", '#'
+            %li.float-right.h4= link_to "Проекты", '#'
           - else
             %li.float-right.h4= link_to "Войти", signin_path
