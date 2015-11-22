@@ -16,4 +16,6 @@
 !/log/.keep
 /tmp
 diplom_project.iml
+Gemfile.lock
 /.idea
+/test/*
