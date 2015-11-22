@@ -1,8 +1,22 @@
 %header.navbar.navbar-fixed-top.navbar-inverse
   .navbar-inner
     .container
-      = link_to "HRMSupProgramm ", root_path, id: "logo"
+      -logo_page = root_path
+      - if signed_in?
+        -logo_page = home_path
+      = link_to "HRMSupProgramm ", logo_page, id: "logo"
       %nav
         %ul.nav
-          %li.float-right.h4= link_to "Home", root_path
-          %li.float-right.h4= link_to "Sign in", '#'
+          - if signed_in?
+            %li#fat-menu.dropdown.float-right.h4
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Аккаунт
+                %b.caret
+                %ul.dropdown-menu
+                  %li= link_to "Профиль", current_user
+                  %li= link_to "Настройки", '#'
+                  %li.divider
+                  %li
+                    = link_to "Выйти", signout_path, method: "delete"
+          - else
+            %li.float-right.h4= link_to "Войти", signin_path

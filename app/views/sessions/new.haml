@@ -1,0 +1,12 @@
+- provide(:title, "Авторизация")
+%h1 Авторизация
+.row
+  .span6.offset3.registration-container
+    = form_for(:session, url: sessions_path) do |f|
+      = f.label :email, "Ваш E-mail"
+      = f.text_field :email
+      = f.label :password, "Ваш пароль"
+      = f.password_field :password
+      = f.submit "Войти", class: "btn btn-large btn-primary"
+    .registration-link
+      %p #{link_to "Зарегистрироваться", signup_path}
