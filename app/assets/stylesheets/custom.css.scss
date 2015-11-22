@@ -1,9 +1,5 @@
 @import "bootstrap";
 
-/* mixins, variables, etc. */
-
-$grayMediumLight: #eaeaea;
-
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -72,17 +68,29 @@ p {
   line-height: 1.7em;
 }
 
+/*container*/
+
+.container-buf{
+  height: 10px;
+}
 
 /* header */
+
+.float-right{
+  float: right;
+}
+
+.float-left{
+  float: left;
+}
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
   color: white;
-  text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  margin-top: 12px;
   font-weight: bold;
   line-height: 1;
   &:hover {
@@ -96,12 +104,12 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
+  border-top: 1px solid #eaeaea;
   color: #999;
   a {
-    color: $gray;
+    color: gray;
     &:hover {
-      color: #222git ;
+      color: #222 ;
     }
   }
   small {
