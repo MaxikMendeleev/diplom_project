@@ -4,4 +4,5 @@ rails generate scaffold Micropost content:string user_id:integer - генера�
  контроллера и вьюшек
 
 rails generate controller static_pages Генерация контроллера StaticPages
-rails destroy  controller static_pages - ydalenie
+rails destroy  controller static_pages - удаление
+rails generate model User name:string email:string - Генерация модели User
