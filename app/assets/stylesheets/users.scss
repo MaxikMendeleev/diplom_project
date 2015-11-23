@@ -13,3 +13,18 @@
   margin-top: 8px;
   margin-left: 73px;
 }
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid #999;
+    &:last-child {
+      border-bottom: 1px solid #999;
+    }
+  }
+}
