@@ -21,5 +21,7 @@
             %li.float-right.h4= link_to "Что я сейчас делаю", '#'
             %li.float-right.h4= link_to "Затраченное время", '#'
             %li.float-right.h4= link_to "Проекты", '#'
+            - if is_admin?(current_user)
+              %li.float-right.h4= link_to "Сотрудники", users_path
           - else
             %li.float-right.h4= link_to "Войти", signin_path

@@ -10,4 +10,7 @@ module ApplicationHelper
     end
   end
 
+  def is_admin?(user)
+    user.admin
+  end
 end
