@@ -20,7 +20,7 @@
                     = link_to "Выйти", signout_path, method: "delete"
             %li.float-right.h4= link_to "Что я сейчас делаю", '#'
             %li.float-right.h4= link_to "Затраченное время", '#'
-            %li.float-right.h4= link_to "Проекты", '#'
+            %li.float-right.h4= link_to "Проекты", projects_path
             - if is_admin?(current_user)
               %li.float-right.h4= link_to "Сотрудники", users_path
           - else

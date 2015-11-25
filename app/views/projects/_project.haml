@@ -1,0 +1,4 @@
+%li
+  = link_to project.name, project
+  - if current_user.admin?
+    | #{link_to "Удалить", project, method: :delete, data: { confirm: "Вы уверены?" }}
