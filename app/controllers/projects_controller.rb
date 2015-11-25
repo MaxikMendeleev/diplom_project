@@ -2,11 +2,11 @@ class ProjectsController < ApplicationController
   include ApplicationHelper
 
   before_action :signed_in_user
-  before_action :admin_user,     only: [:edit, :create, :destroy]
+  before_action :admin_user,     only: [:edit, :update, :create, :destroy]
 
 
   def index
-    @projects = Project.paginate(page: params[:page])
+    @projects = Project.order('name ASC').paginate( page: params[:page], :per_page => 6)
   end
 
   def show
@@ -14,6 +14,17 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      flash[:success] = "Проект обновлен"
+      redirect_to @project
+    else
+      render 'edit'
+    end
   end
 
   def new
@@ -23,7 +34,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      flash[:success] = "Проект успешно создан!"
+      flash[:success] = "Проект успешно создан"
       redirect_to @project
     else
       render 'new'
@@ -36,9 +47,11 @@ class ProjectsController < ApplicationController
     redirect_to projects_url
   end
 
+  private
 
   def project_params
-    params.require(:project).permit(:name, :wiki)
+    params.require(:project).permit(:name,
+                                    :wiki)
   end
 
 end
