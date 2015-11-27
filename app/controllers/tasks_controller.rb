@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   before_action :admin_user,     only: [:index, :destroy]
 
   def index
-    @task = Task.order('name ASC').paginate( page: params[:page], :per_page => 6)
+    @tasks = Task.order('name ASC').paginate( page: params[:page], :per_page => 6)
   end
 
   def show
@@ -16,12 +16,13 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.build
   end
 
   def create
-    @task = current_project.tasks.build(micropost_params)
-    # @task = Task.new(task_params)
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.build(task_params)
     if @task.save
       flash[:success] = "Задача успешно создана!"
       redirect_to @task
@@ -34,6 +35,14 @@ class TasksController < ApplicationController
     Task.find(params[:id]).destroy
     flash[:success] = "Задача удалена"
     redirect_to tasks_url
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:name,
+                                 :complete,
+                                 :info)
   end
 
 end

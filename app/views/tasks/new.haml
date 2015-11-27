@@ -1,0 +1,11 @@
+- provide(:title, 'Новая задача')
+%h1 Новая задача
+.row
+  .span6.offset3.registration-container
+    = form_for([@project, @task]) do |f|
+      = render 'shared/error_messages', object: f.object
+      = f.label :name, "Название задачи"
+      = f.text_field :name
+      = f.label :info, "Информация о задаче"
+      = f.text_area :info
+      = f.submit "Создать новую задачу", class: "btn btn-large btn-primary"

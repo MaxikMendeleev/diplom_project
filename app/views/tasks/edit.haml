@@ -1,0 +1,13 @@
+- provide(:title, 'Изменение задачи')
+%h1 Изменение задачи
+.row
+  .span6.offset3.registration-container
+    = form_for(@task) do |f|
+      = render 'shared/error_messages', object: f.object
+      = f.label :name, "Название задачи"
+      = f.text_field :name
+      = f.label :info, "Информация о задаче"
+      = f.text_field :info
+      = f.label :complete, "Процент выполнения"
+      = f.text_field :complete
+      = f.submit "Изменить текущую задачу", class: "btn btn-large btn-primary"

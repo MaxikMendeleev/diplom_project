@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   resources :users
-  resources :projects
-  resources :tasks
+  resources :projects do
+    resources :tasks
+  end
   resources :sessions, only: [:new, :create, :destroy]
 
   root  'sessions#new'
