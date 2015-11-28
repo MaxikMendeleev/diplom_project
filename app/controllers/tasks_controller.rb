@@ -18,6 +18,17 @@ class TasksController < ApplicationController
     @task = @project.tasks.find(params[:id])
   end
 
+  def update
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.find(params[:id])
+    if @task.update(task_params)
+      flash[:success] = "Задача обновлена"
+      redirect_to project_tasks_path
+    else
+      render 'edit'
+    end
+  end
+
   def new
     @project = Project.find(params[:project_id])
     @task = @project.tasks.build
@@ -25,7 +36,7 @@ class TasksController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    @task = @project.tasks.build(task_params_create)
+    @task = @project.tasks.build(task_params)
     if @task.save
       flash[:success] = "Задача успешно создана!"
       redirect_to project_tasks_path
@@ -42,13 +53,7 @@ class TasksController < ApplicationController
 
   private
 
-  def task_params_create
-    params.require(:task).permit(:name,
-                                 :complete,
-                                 :info)
-  end
-
-  def task_params_edit
+  def task_params
     params.require(:task).permit(:name,
                                  :complete,
                                  :info)

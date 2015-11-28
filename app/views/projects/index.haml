@@ -1,11 +1,10 @@
 - provide(:title, 'Все проекты')
+- if signed_in? && is_admin?(current_user)
+  %p.float-right #{link_to "Создать проект", new_project_path}
 %h1 Все Проекты
 -if(!@projects.empty?)
-  = will_paginate
   %ul.projects
     = render @projects
   = will_paginate
 -else
   %h4 Нет ни одного проекта
-- if is_admin?(current_user)
-  %p #{link_to "Создать проект", new_project_path}

@@ -1,8 +1,15 @@
 - provide(:title, @task.name)
 = render 'projects/project_menu'
+= render 'task_menu'
 .row
   %aside.span4
     %section
       %h1
         Задача:
         = @task.name
+      %h4
+        =@task.info
+      %h4
+        Процент выполнения:
+        =@task.complete
+        \%

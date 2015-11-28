@@ -1,8 +1,9 @@
 - provide(:title, 'Изменение задачи')
+= render 'projects/project_menu'
 %h1 Изменение задачи
 .row
   .span6.offset3.registration-container
-    = form_for(@task) do |f|
+    = form_for([@project, @task]) do |f|
       = render 'shared/error_messages', object: f.object
       = f.label :name, "Название задачи"
       = f.text_field :name
