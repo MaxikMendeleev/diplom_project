@@ -1,12 +1,12 @@
 .container
   %ul.nav
     - if signed_in?
-      %li.float-left= link_to "Обзор", @project
+      %li.float-left= link_to "Обзор", @project, project_id:@project.id
       %li.float-left= link_to "Задачи", project_tasks_path(@project)
       %li.float-left= link_to "Новая задача", new_project_task_path(@project)
       %li.float-left= link_to "Wiki", '#'
       %li.float-left= link_to "Документы", '#'
       - if is_admin?(current_user)
-        %li.float-left= link_to "Изменить", edit_project_path
+        %li.float-left= link_to "Изменить", edit_project_path(@project)
         %li.float-left #{link_to "Удалить", @project, method: :delete, data: { confirm: "Вы уверены?" }}
 .container-buf

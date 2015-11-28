@@ -1,9 +1,10 @@
 - provide(:title, 'Все задачи')
+= render 'projects/project_menu'
 %h1 Все Задачи
 -if(!@tasks.empty?)
   = will_paginate
-  %ul.projects
-    = render @tasks
+  %ul.tasks
+    = render @tasks , project: @project
   = will_paginate
 -else
   %h4 Нет ни одной задачи

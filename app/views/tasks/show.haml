@@ -1,8 +1,8 @@
-- provide(:title, @tasks.name)
-= render '/project/project_menu'
+- provide(:title, @task.name)
+= render 'projects/project_menu'
 .row
   %aside.span4
     %section
       %h1
         Задача:
-        = @tasks.name
+        = @task.name

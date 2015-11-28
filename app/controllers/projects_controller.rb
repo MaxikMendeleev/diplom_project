@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    Project.find(params[:id]).destroy
+    Project.find(params[:project_id]).destroy
     flash[:success] = "Проект удален"
     redirect_to projects_url
   end

@@ -4,15 +4,18 @@ class TasksController < ApplicationController
   before_action :admin_user,     only: [:index, :destroy]
 
   def index
-    @tasks = Task.order('name ASC').paginate( page: params[:page], :per_page => 6)
+    @project = Project.find(params[:project_id])
+    @tasks = @project.tasks.order('name ASC').paginate( page: params[:page], :per_page => 6)
   end
 
   def show
-    @task = Task.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.find(params[:id])
   end
 
   def edit
-    @task = Task.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.find(params[:id])
   end
 
   def new
@@ -22,10 +25,10 @@ class TasksController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    @task = @project.tasks.build(task_params)
+    @task = @project.tasks.build(task_params_create)
     if @task.save
       flash[:success] = "Задача успешно создана!"
-      redirect_to @task
+      redirect_to project_tasks_path
     else
       render 'new'
     end
@@ -34,12 +37,18 @@ class TasksController < ApplicationController
   def destroy
     Task.find(params[:id]).destroy
     flash[:success] = "Задача удалена"
-    redirect_to tasks_url
+    redirect_to project_tasks_path
   end
 
   private
 
-  def task_params
+  def task_params_create
+    params.require(:task).permit(:name,
+                                 :complete,
+                                 :info)
+  end
+
+  def task_params_edit
     params.require(:task).permit(:name,
                                  :complete,
                                  :info)
