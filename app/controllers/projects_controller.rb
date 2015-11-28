@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @users = User.all
   end
 
   def update
@@ -29,6 +30,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @users = User.all
   end
 
   def create
@@ -51,7 +53,8 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name,
-                                    :wiki)
+                                    :wiki,
+                                    :user_ids=>[params[:to]])
   end
 
 end

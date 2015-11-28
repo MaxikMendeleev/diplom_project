@@ -11,6 +11,7 @@ source 'https://rubygems.org'
   gem 'bcrypt-ruby'
   gem 'will_paginate'
   gem 'bootstrap-will_paginate'
+  gem 'amoeba'
 
   # Use jquery as the JavaScript library
   gem 'jquery-rails'

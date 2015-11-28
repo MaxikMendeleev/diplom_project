@@ -8,4 +8,12 @@
       = f.text_field :name
       = f.label :wiki, "Wiki"
       = f.text_area :wiki
+      = f.label :users, "Сотрудники"
+      %form{:action => "form_action.asp"}
+        %select{:multiple => "", :name => "cars"}
+          %option{:value => "volvo"} Volvo
+          %option{:value => "saab"} Saab
+          %option{:value => "opel"} Opel
+          %option{:value => "audi"} Audi
+        %input{:type => "submit"}
       = f.submit "Создать новый проект", class: "btn btn-large btn-primary"

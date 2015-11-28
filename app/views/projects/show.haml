@@ -7,3 +7,11 @@
       %h1
         Проект:
         = @project.name
+      -if(!@project.users.empty?)
+        %h3
+          Сотрудники:
+          - @project.users.each do |us|
+            =us.name
+      -else
+        %h3
+          Сотрудники не назначены
