@@ -8,6 +8,8 @@ rails destroy  controller static_pages - удаление
 rails generate model User name:string email:string - Генерация модели User
 
 
+rake db:rollback STEP=5    //!!!!!!!!!!!!!!
+rake db:migrate:down VERSION=20151128153644
 //////////////////////////////////////////////////
 Как и в случае с консолью, development является дефолтным окружением для локального Rails сервера,
 но вы также можете запустить его и в другом окружении:
@@ -18,3 +20,5 @@ rails generate model User name:string email:string - Генерация моде
 
 Развертывание: 7.4.4 Развертывание приложения на сервере с SSL
 ///////////////////////////////////////////////////
+
+rails generate model Time_table count:integer
