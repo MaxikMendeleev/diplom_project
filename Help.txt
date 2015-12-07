@@ -21,4 +21,3 @@ rake db:migrate:down VERSION=20151128153644
 Развертывание: 7.4.4 Развертывание приложения на сервере с SSL
 ///////////////////////////////////////////////////
 
-rails generate model Time_table count:integer

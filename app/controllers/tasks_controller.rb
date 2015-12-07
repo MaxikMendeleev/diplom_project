@@ -23,7 +23,7 @@ class TasksController < ApplicationController
     @task = @project.tasks.find(params[:id])
     if @task.update(task_params)
       flash[:success] = "Задача обновлена"
-      redirect_to project_tasks_path
+      redirect_to project_task_path
     else
       render 'edit'
     end

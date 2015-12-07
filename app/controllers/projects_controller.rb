@@ -36,6 +36,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
+      create_project_users
       flash[:success] = "Проект успешно создан"
       redirect_to @project
     else
@@ -57,4 +58,7 @@ class ProjectsController < ApplicationController
                                     :user_ids=>[params[:to]])
   end
 
+  def create_project_users
+    #params[:user]
+  end
 end

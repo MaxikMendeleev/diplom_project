@@ -11,5 +11,8 @@
         =@task.info
       %h4
         Процент выполнения:
-        =@task.complete
+        -if @task.complete
+          =@task.complete
+        -else
+          0
         \%

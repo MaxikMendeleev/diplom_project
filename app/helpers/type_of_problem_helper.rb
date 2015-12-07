@@ -1,0 +1,2 @@
+module TypeOfProblemHelper
+end
