@@ -12,6 +12,9 @@ source 'https://rubygems.org'
   gem 'will_paginate'
   gem 'bootstrap-will_paginate'
   gem 'amoeba'
+  gem 'rails_admin'
+  gem 'kaminari'
+
 
   # Use jquery as the JavaScript library
   gem 'jquery-rails'

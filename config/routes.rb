@@ -1,15 +1,23 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   resources :users
   resources :projects do
     resources :tasks
+      resources :time_table
+
   end
+  resources :specialization
+  resources :type_of_problem
+  resources :status_complete
+
   resources :sessions, only: [:new, :create, :destroy]
 
   root  'sessions#new'
   match '/home',    to: 'static_pages#home',    via: 'get'
-  match '/signup',  to: 'users#new',            via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
