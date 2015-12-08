@@ -11,6 +11,11 @@ class TasksController < ApplicationController
   def show
     @project = Project.find(params[:project_id])
     @task = @project.tasks.find(params[:id])
+    @time_tables = TimeTable.select_task(params[:id])
+    @time_table = 0
+    !@time_tables ? false : @time_tables.each do |time|
+      @time_table+=time.count.to_i
+    end
   end
 
   def edit

@@ -1,0 +1,10 @@
+- provide(:title, 'Затраченное время')
+= render 'projects/project_menu'
+%h1 Затраченное время
+-#-if(!@tasks.empty?)
+-#  = will_paginate
+-#  %ul.tasks
+-#    = render @tasks , project: @project
+-#  = will_paginate
+-#-else
+-#  %h4 Нет ни одной задачи
