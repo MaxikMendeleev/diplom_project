@@ -3,4 +3,4 @@
     - if signed_in?
       %li.float-right #{link_to "Удалить", [@project, @task], method: :delete, data: { confirm: "Вы уверены?" }}
       %li.float-right= link_to "Изменить", edit_project_task_path
-      %li.float-right= link_to "Трудозатраты", '#'
+      %li.float-right= link_to "Трудозатраты", new_project_task_time_table_path(@project, @task)

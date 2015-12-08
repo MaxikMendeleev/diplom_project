@@ -1,0 +1,10 @@
+- provide(:title, 'Затраченное время')
+= render 'projects/project_menu'
+%h1 Затраченное время
+.row
+  .span6.offset3.registration-container
+    = form_for([@project, @task, @time_table]) do |f|
+      = render 'shared/error_messages', object: f.object
+      = f.label :count, "Затраченное время"
+      = f.text_field :count
+      = f.submit "Сохранить", class: "btn btn-large btn-primary"

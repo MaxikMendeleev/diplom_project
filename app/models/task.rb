@@ -5,6 +5,7 @@ class Task < ActiveRecord::Base
   belongs_to :project
   belongs_to :type_of_problem
   belongs_to :status_complete
+  has_many :time_tables
 
   validates :name, presence: true, length: { maximum: 70 }
 

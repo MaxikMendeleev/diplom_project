@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   resources :users
   resources :projects do
-    resources :tasks
-      resources :time_table
-
+    resources :tasks do
+      resources :time_tables
+    end
   end
   resources :specialization
   resources :type_of_problem
