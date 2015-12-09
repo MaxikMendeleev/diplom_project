@@ -68,22 +68,6 @@ p {
   line-height: 1.7em;
 }
 
-/*container*/
-
-.container-buf{
-  height: 10px;
-}
-
-/* header */
-
-.float-right{
-  float: right;
-}
-
-.float-left{
-  float: left;
-}
-
 #logo {
   float: left;
   margin-right: 10px;
@@ -177,4 +161,40 @@ input {
 
 .alert-error{
   color: #f00;
+}
+
+/*container*/
+
+.container-buf{
+  height: 10px;
+}
+
+.container-eight{
+  margin: auto;
+  width: 800px;
+}
+
+.container-five{
+  margin: auto;
+  width: 500px;
+}
+/*text*/
+
+.text-normal{
+  p {
+    text-indent: 20px;
+    font-family: "Helvetica";
+    text-align: justify;
+    line-height: 1.2;
+    font-size: 1.3em;
+    font-weight: normal;
+  }
+}
+
+.float-right{
+  float: right;
+}
+
+.float-left{
+  float: left;
 }
