@@ -4,14 +4,27 @@
 .row
   %aside.span4
     %section
-      %h1
-        Проект:
-        = @project.name
-      -if(!@project.users.empty?)
-        %h3
-          Сотрудники:
-          - @project.users.each do |us|
-            =us.name
-      -else
-        %h3
-          Сотрудники не назначены
+      .container-five.float-left
+        %h1
+          Проект:
+          %br
+          %br
+          = @project.name
+          %br
+          %br
+          Затраченное время:
+          = @all_project_time
+          ч.
+      .container-five
+        -if(!@project.users.empty?)
+          %h4
+            Сотрудники:
+            %br
+            %br
+            - @project.users.each do |us|
+              =us.name
+              =us.surname
+              %br
+        -else
+          %h4
+            Сотрудники не назначены
