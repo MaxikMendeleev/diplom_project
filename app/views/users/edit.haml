@@ -1,7 +1,7 @@
 - provide(:title, 'Изменение профиля')
 %h1 Изменение профиля
 .row
-  .span6.offset3.registration-container
+  .span6.offset3.container-three
     = form_for(@user) do |f|
       = render 'shared/error_messages', object: f.object
       = f.label :name, "Ваше имя"

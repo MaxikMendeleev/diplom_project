@@ -1,7 +1,7 @@
 - provide(:title, "Авторизация")
 %h1 Авторизация
 .row
-  .span6.offset3.registration-container
+  .span6.offset3.container-three
     = form_for(:session, url: sessions_path) do |f|
       = f.label :email, "Ваш E-mail"
       = f.text_field :email

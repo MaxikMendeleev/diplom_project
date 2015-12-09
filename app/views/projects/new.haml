@@ -1,19 +1,37 @@
 - provide(:title, 'Новый проект')
 %h1 Новый проект
 .row
-  .span6.offset3.registration-container
+  .span6.offset3.container-eight
     = form_for(@project) do |f|
       = render 'shared/error_messages', object: f.object
-      = f.label :name, "Название проекта"
-      = f.text_field :name
-      = f.label :wiki, "Wiki"
-      = f.text_area :wiki
+      .container-three
+        = f.label :name, "Название проекта"
+        = f.text_field :name
+        = f.label :wiki, "Wiki"
+        = f.text_area :wiki
       = f.label :users, "Сотрудники"
-      %form{:action => "form_action.asp"}
-        %select{:multiple => "", :name => "cars"}
-          %option{:value => "volvo"} Volvo
-          %option{:value => "saab"} Saab
-          %option{:value => "opel"} Opel
-          %option{:value => "audi"} Audi
-        %input{:type => "submit"}
-      = f.submit "Создать новый проект", class: "btn btn-large btn-primary"
+      .row
+        .col-xs-5
+          %select#search.form-control{:multiple => "multiple", :name => "from[]", :size => "8"}
+            -@users.each do |user|
+              %option{:value => user.id}
+                =user.name+ " " + user.surname
+        .col-xs-2
+          %button#search_rightAll.btn.btn-block{:type => "button"} >>
+          %button#search_rightSelected.btn.btn-block{:type => "button"} >
+          %button#search_leftSelected.btn.btn-block{:type => "button"} <
+          %button#search_leftAll.btn.btn-block{:type => "button"} <<
+        .col-xs-5
+          %select#search_to.form-control{:multiple => "multiple", :name => "to[]", :size => "8"}
+      .container-three
+        = f.submit "Создать новый проект", class: "btn btn-large btn-primary"
+
+:javascript
+  jQuery(document).ready(function($) {
+  	$('#search').multiselect({
+  		search: {
+  			left: '',
+  			right: '',
+  		}
+  	});
+  });

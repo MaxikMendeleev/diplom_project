@@ -2,11 +2,12 @@
 = render 'project_menu'
 %h1 Изменение проекта
 .row
-  .span6.offset3.registration-container
+  .span6.offset3.container-eight
     = form_for(@project) do |f|
       = render 'shared/error_messages', object: f.object
-      = f.label :name, "Название проекта"
-      = f.text_field :name
+      .container-three
+        = f.label :name, "Название проекта"
+        = f.text_field :name
       = f.label :wiki, "Wiki"
       = f.text_area :wiki
       = f.label :users, "Сотрудники"
@@ -23,7 +24,8 @@
           %button#search_leftAll.btn.btn-block{:type => "button"} <<
         .col-xs-5
           %select#search_to.form-control{:multiple => "multiple", :name => "to[]", :size => "8"}
-      = f.submit "Сохранить изменения", class: "btn btn-large btn-primary"
+      .container-three
+        = f.submit "Сохранить изменения", class: "btn btn-large btn-primary"
 
 :javascript
   jQuery(document).ready(function($) {

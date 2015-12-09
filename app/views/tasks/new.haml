@@ -2,7 +2,7 @@
 = render 'projects/project_menu'
 %h1 Новая задача
 .row
-  .span6.offset3.registration-container
+  .span6.offset3.container-three
     = form_for([@project, @task]) do |f|
       = render 'shared/error_messages', object: f.object
       = f.label :name, "Название задачи"
