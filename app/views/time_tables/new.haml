@@ -7,4 +7,8 @@
       = render 'shared/error_messages', object: f.object
       = f.label :count, "Затраченное время"
       = f.text_field :count
+      = f.label :work_day, "Дата"
+      = f.date_select :work_day
+      = f.label :comment, "Комментарий"
+      = f.text_field :comment
       = f.submit "Сохранить", class: "btn btn-large btn-primary"

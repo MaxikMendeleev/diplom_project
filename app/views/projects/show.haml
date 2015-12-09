@@ -19,8 +19,9 @@
         -if(!@project.users.empty?)
           %h4
             Сотрудники:
-            %br
-            %br
+
+            
+          .text-small
             - @project.users.each do |us|
               =us.name
               =us.surname

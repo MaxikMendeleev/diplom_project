@@ -4,19 +4,53 @@
 .row
   %aside.span4
     %section
-      %h1
-        Задача:
-        = @task.name
-      %h4
-        =@task.info
-      %h4
-        Процент выполнения:
-        -if @task.complete
-          =@task.complete
+      .container-five.float-left
+        %h1
+          = @task.name
+          %br
+          %br
+        -#%h4
+        -#  Статус:
+        -#    = @status_complete.name
+        -#  %br
+        -#  %br
+        -if(!@project.users.empty?)
+          %h4
+            Сотрудники:
+            %br
+            %br
+            .text-label
+            - @task.users.each do |us|
+
+              =us.name
+              =us.surname
+              %br
         -else
-          0
-        \%
-      %h4
-        Затраченное время:
-        =@time_table
-        ч
+          %h4
+            Сотрудники не назначены
+        %br
+        %br
+
+        %h4
+          Процент выполнения:
+          -if @task.complete
+            =@task.complete
+          -else
+            0
+          \%
+        %h4
+          Оцененное время:
+          -if @task.lead_time
+            =@task.lead_time
+          -else
+            ?
+          ч
+        %h4
+          Затраченное время:
+          =@time_table
+          ч
+      .container-six.float-right
+        %h4
+          .text-small
+            %p
+              =@task.info

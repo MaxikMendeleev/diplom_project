@@ -15,6 +15,11 @@ class User < ActiveRecord::Base
 
   belongs_to :specialization
   has_many :time_tables
+  has_and_belongs_to_many :projects
+
+  scope :get_project_users, ->(project_id){
+    joins(:projects).where('project_id = ?', project_id)
+  }
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

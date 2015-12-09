@@ -180,6 +180,11 @@ input {
   //background-color: red;
 }
 
+.container-six{
+  margin: auto;
+  width: 600px;
+}
+
 .container-five{
   margin: auto;
   width: 500px;
@@ -195,6 +200,25 @@ input {
   width: 200px;
 }
 /*text*/
+.text-small {
+  p {
+    text-indent: 20px;
+    font-family: "Helvetica";
+    text-align: justify;
+    line-height: 1.1;
+    font-size: 1em;
+    font-weight: normal;
+  }
+}
+
+.text-label {
+    font-family: "Helvetica";
+    text-align: justify;
+    line-height: 1.1;
+    font-size: 1em;
+    font-weight: normal;
+
+}
 
 .text-normal{
   p {

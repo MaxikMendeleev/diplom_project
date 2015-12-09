@@ -63,7 +63,6 @@ class ProjectsController < ApplicationController
     users = params[:to]
     delete_project_users(users)
     save_project_users(users)
-    # удаление и сохранение
   end
 
   def create_project_users

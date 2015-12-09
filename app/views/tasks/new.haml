@@ -2,11 +2,39 @@
 = render 'projects/project_menu'
 %h1 Новая задача
 .row
-  .span6.offset3.container-three
+  .span6.offset3.container-eight
     = form_for([@project, @task]) do |f|
       = render 'shared/error_messages', object: f.object
-      = f.label :name, "Название задачи"
-      = f.text_field :name
-      = f.label :info, "Информация о задаче"
-      = f.text_area :info
-      = f.submit "Создать новую задачу", class: "btn btn-large btn-primary"
+      .container-three
+        = f.label :name, "Название задачи"
+        = f.text_field :name
+        = f.label :info, "Информация о задаче"
+        = f.text_area :info
+        = f.label :lead_time, "Оцененное время"
+        = f.text_field :lead_time
+      = f.label :users, "Сотрудники"
+      .row
+        .col-xs-5
+          %select#search.form-control{:multiple => "multiple", :name => "from[]", :size => "8"}
+            -@users.each do |user|
+              %option{:value => user.id}
+                =user.name+ " " + user.surname
+        .col-xs-2
+          %button#search_rightAll.btn.btn-block{:type => "button"} >>
+          %button#search_rightSelected.btn.btn-block{:type => "button"} >
+          %button#search_leftSelected.btn.btn-block{:type => "button"} <
+          %button#search_leftAll.btn.btn-block{:type => "button"} <<
+        .col-xs-5
+          %select#search_to.form-control{:multiple => "multiple", :name => "to[]", :size => "8"}
+      .container-three
+        = f.submit "Создать новую задачу", class: "btn btn-large btn-primary"
+
+:javascript
+  jQuery(document).ready(function($) {
+  	$('#search').multiselect({
+  		search: {
+  			left: '',
+  			right: '',
+  		}
+  	});
+  });

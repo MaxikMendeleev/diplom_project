@@ -39,7 +39,9 @@ class TimeTablesController < ApplicationController
   private
 
   def time_table_params
-    params.require(:time_table).permit(:count
+    params.require(:time_table).permit(:count,
+                                       :comment,
+                                       :work_day
                                 )
   end
 
