@@ -1,2 +1,3 @@
-%li
-  = link_to task.name, project_task_path(id:task.id , project_id:@project.id )
+.project-list
+  %li
+    = link_to task.name, project_task_path(id:task.id , project_id:@project.id )

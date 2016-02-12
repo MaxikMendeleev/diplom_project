@@ -81,6 +81,10 @@ p {
     text-decoration: none;
   }
 }
+.container{
+  width: 1100px;
+
+}
 
 /* footer */
 
@@ -89,10 +93,14 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #999;
+
   a {
     color: gray;
-    &:hover {
-      color: #222 ;
+    &:hover,
+    &:focus {
+      color: #222;
+      text-decoration: none;
+      font-weight: bold;
     }
   }
   small {

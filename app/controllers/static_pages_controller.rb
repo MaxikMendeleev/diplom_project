@@ -5,4 +5,8 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  def todo
+
+  end
 end

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
+  match '/todo',    to: 'static_pages#todo',    via: 'get'
+
   root  'sessions#new'
   match '/home',    to: 'static_pages#home',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'

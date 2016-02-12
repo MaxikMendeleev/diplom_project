@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   include ApplicationHelper
 
-  before_action :admin_user,     only: [:index, :destroy]
+  before_action :admin_user,     only: [:destroy]
 
   def index
     @project = Project.find(params[:project_id])
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
     @task = @project.tasks.build(task_params)
     if @task.save
       flash[:success] = "Задача успешно создана!"
-      create_task_users
+      # create_task_users
       redirect_to project_tasks_path
     else
       render 'new'

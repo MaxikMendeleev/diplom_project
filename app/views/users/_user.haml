@@ -2,4 +2,5 @@
   = gravatar_for user, size: 52
   = link_to user.name+" "+user.surname, user
   - if current_user.admin? && !current_user?(user)
+    | #{link_to "Изменить", user, method: :edit}
     | #{link_to "Удалить", user, method: :delete, data: { confirm: "Вы уверены?" }}

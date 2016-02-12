@@ -1,0 +1,26 @@
+.container-eight
+  .row
+    .col-xs-5
+      "Что нового"
+      %select#search.form-control{:multiple => "multiple", :name => "from[]", :size => "8"}
+        %option{:value => "Задание 1, TestProject1"}
+          qwe
+    .col-xs-2
+      %button#search_rightAll.btn.btn-block{:type => "button"} >>
+      %button#search_rightSelected.btn.btn-block{:type => "button"} >
+      %button#search_leftSelected.btn.btn-block{:type => "button"} <
+      %button#search_leftAll.btn.btn-block{:type => "button"} <<
+    .col-xs-5
+      %select#search_to.form-control{:multiple => "multiple", :name => "to[]", :size => "8"}
+  .container-three
+    = button_tag "Приступить", class: "btn btn-large btn-primary"
+
+:javascript
+  jQuery(document).ready(function($) {
+  	$('#search').multiselect({
+  		search: {
+  			left: '',
+  			right: '',
+  		}
+  	});
+  });
